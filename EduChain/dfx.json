@@ -1,0 +1,38 @@
+{
+  "canisters": {
+    "educhain": {
+      "type": "custom",
+      "main": "src/index.ts",
+      "candid": "src/educhain.did",
+      "candid_gen": "http",
+      "build": "npx azle educhain",
+      "wasm": ".azle/educhain/educhain.wasm",
+      "gzip": true,
+      "metadata": [
+        {
+          "name": "candid:service",
+          "path": "src/educhain.did"
+        },
+        {
+          "name": "cdk:name",
+          "content": "azle"
+        }
+      ]
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    },
+    "ic": {
+      "providers": ["https://ic0.app"]
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": ""
+    }
+  },
+  "version": 1
+}
